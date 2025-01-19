@@ -4,18 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Task index</title>
+    <title>Task edit</title>
 </head>
 <body>
-    <h1>タスク一覧</h1>
-    @foreach ($tasks as $task)
-        <a href="{{ route('tasks.show', $task) }}">{{ $task->title }}</a>
-        @method('DELETE')
-        <input type="submit" value="削除する" class="button" onclick="if(!confirm('削除しますか？')){return felse};">
-        <br>
-    @endforeach
-    <hr>
-    <h1>新規タスク登録</h1>
+    <h1>タスク編集</h1>
     <form action="{{ route('tasks.index') }}" method="post">
         @csrf
         <p>
@@ -26,7 +18,8 @@
             <label for="body">本文</label><br>
             <textarea name="body" id="body"></textarea>
         </p>
-        <input type="submit" value="Create Task">
+        <input type="submit" value="更新">
     </form>
+    <button onclick='location.href="{{ route("tasks.show", $task) }}"' class="button-group">詳細へ戻る</button>
 </body>
 </html>
