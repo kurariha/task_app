@@ -28,7 +28,7 @@ class TaskController extends Controller
         $task->save();
         
         //登録したらindexを再読み込み
-        return redirect('/tasks');
+        return redirect()->route('tasks.index');
     }
 
     // showページへ移動
@@ -53,7 +53,7 @@ class TaskController extends Controller
         $task->save();
         
         //登録したらindexを再読み込み
-        return redirect('/tasks');
+        return redirect()->route('tasks.index');
     }
 
     public function destroy($id)
