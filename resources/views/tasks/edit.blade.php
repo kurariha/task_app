@@ -14,7 +14,7 @@
     @if ($errors->any())
         <div class="error">
             <p>
-                <b>{{ count($errors) }}件のエラーがあります。</b>
+                <b>【エラー内容】</b>
             </p>
             <ul>
                 @foreach ($errors->all() as $error)
@@ -23,7 +23,7 @@
             </ul>
         </div>
     @endif
-    
+
     <form action="{{ route('tasks.update', $task) }}" method="post">
         @csrf
         @method('PATCH')
@@ -33,11 +33,13 @@
         </p>
         <p>
             <label for="body">本文</label><br>
-            <textarea name="body" id="body">{{ old('title', $task->body) }}</textarea>
+            <textarea name="body" id="body" class="textarea">{{ old('title', $task->body) }}</textarea>
         </p>
-        <input type="submit" value="更新">
+        <div class="button-group">
+            <input type="submit" value="更新" class="button">
+            {{-- ボタン(詳細へ戻る) --}}
+            <button onclick='location.href="{{ route("tasks.show", $task) }}"' class="button">詳細へ戻る</button>
+        </div>
     </form>
-    {{-- ボタン(詳細へ戻る) --}}
-    <button onclick='location.href="{{ route("tasks.show", $task) }}"' class="button-group">詳細へ戻る</button>
 </body>
 </html>

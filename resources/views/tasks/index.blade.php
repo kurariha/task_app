@@ -18,7 +18,7 @@
             <form action="{{ route('tasks.destroy', $task) }}" method="post">
                 @csrf
                 @method('DELETE')
-                <input type="submit" value="削除する" onclick="if(!confirm('削除しますか？')){return felse};">
+                <input type="submit" value="削除する" class="button" onclick="if(!confirm('削除しますか？')){return felse};">
             </form>
         </div>
     @endforeach
@@ -29,7 +29,7 @@
     @if ($errors->any())
         <div class="error">
             <p>
-                <b>{{ count($errors) }}件のエラーがあります。</b>
+                <b>【エラー内容】</b>
             </p>
             <ul>
                 @foreach ($errors->all() as $error)
@@ -47,9 +47,9 @@
         </p>
         <p>
             <label for="body">本文</label><br>
-            <textarea name="body" id="body">{{ old('body') }}</textarea>
+            <textarea name="body" id="body" class="textarea">{{ old('body') }}</textarea>
         </p>
-        <input type="submit" value="Create Task">
+        <input type="submit" value="Create Task" class="button">
     </form>
 </body>
 </html>

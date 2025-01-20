@@ -17,12 +17,12 @@
 
     {{-- ボタン(一覧へ戻る、編集する、削除する) --}}
     <div class="button-group">  
-        <button onclick='location.href="{{ route("tasks.index") }}"'>一覧へ戻る</button>
-        <button onclick='location.href="{{ route("tasks.edit", $task) }}"'>編集する</button>
+        <button onclick='location.href="{{ route("tasks.index") }}"' class="button">一覧へ戻る</button>
+        <button onclick='location.href="{{ route("tasks.edit", $task) }}"' class="button">編集する</button>
         <form action="{{ route('tasks.destroy', $task) }}" method="post">
             @csrf
             @method('DELETE')
-            <input type="submit" value="削除する" onclick="if(!confirm('削除しますか？')){return false};">
+            <input type="submit" value="削除する" onclick="if(!confirm('削除しますか？')){return false};" class="button">
         </form>
     </div>
 </body>
