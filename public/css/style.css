@@ -8,3 +8,7 @@
 .button-group {
     display: flex;
 }
+
+.error {
+    color: red;
+}
