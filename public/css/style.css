@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+.task-item {
+    display: flex;
+    gap: 5px;
+}
+
 .button-group {
     display: flex;
 }
